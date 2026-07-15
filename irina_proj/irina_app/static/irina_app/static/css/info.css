@@ -1,0 +1,105 @@
+.about-us-content {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section h2 {
+    color: #1e3a67;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1e3a67;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.president-section .president-info {
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    gap: 20px; /* Расстояние между фото и деталями */
+}
+
+.president-photo {
+    width: 200px; /* Фиксированная ширина фото */
+    height: 200px; /* Фиксированная высота фото */
+    object-fit: cover; /* Масштабирование с сохранением пропорций */
+    border-radius: 50%; /* Сделать фото круглым */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.president-details {
+    flex-grow: 1; /* Занять оставшееся пространство */
+}
+
+.president-details h3 {
+    font-size: 24px;
+    color: #1e3a67;
+    margin: 0 0 10px 0;
+}
+
+.president-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.president-details p b {
+    font-weight: 600;
+}
+
+.contact-section .address-info {
+    font-size: 17px;
+}
+
+.contact-section .address-info p {
+    margin-bottom: 12px;
+}
+
+.contact-section .address-info a {
+    color: #1e3a67;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-section .address-info a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        margin-top: 15px;
+    }
+    nav a {
+        margin: 0 10px;
+    }
+    .president-section .president-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .president-photo {
+        margin-bottom: 15px;
+    }
+    .section h2 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,99 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+{% block title %} Регистрация на {{ start.name }} {% endblock %} 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/registration.css' %}">
+{% endblock %}
+{% block main_block %}
+<div class="registration-container">
+    <h2>Регистрация на соревнование</h2>
+    <div class="start-info">
+        <h3>{{ start.name }}</h3>
+        <p>Дата проведения: {{ start.event_date }} - {{ start.end_date }}</p>
+        <p>Окончание регистрации: {{ start.registration_end_date }}</p>
+    </div>
+    
+    <form method="post" enctype="multipart/form-data" id="registrationForm">
+        {% csrf_token %}
+        
+        <!-- Выбор категории -->
+        <div class="form-section">
+            <h3>Выберите категорию участников</h3>
+            <div class="form-group">
+                <label for="{{ form.category.id_for_label }}">Категория:</label>
+                {{ form.category }}
+            </div>
+        </div>
+        
+        <!-- Данные спортсмена -->
+        <div class="form-section">
+            <h3>Данные спортсмена</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.sportsmen_last_name.id_for_label }}">Фамилия:</label>
+                    {{ form.sportsmen_last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.sportsmen_first_name.id_for_label }}">Имя:</label>
+                    {{ form.sportsmen_first_name }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.sportsmen_year.id_for_label }}">Год рождения:</label>
+                    {{ form.sportsmen_year }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.sportsmen_category.id_for_label }}">Спортивный разряд:</label>
+                    {{ form.sportsmen_category }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Данные тренера -->
+        <div class="form-section">
+            <h3>Данные тренера</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.trener_last_name.id_for_label }}">Фамилия:</label>
+                    {{ form.trener_last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.trener_first_name.id_for_label }}">Имя:</label>
+                    {{ form.trener_first_name }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.trener_patronymic.id_for_label }}">Отчество:</label>
+                    {{ form.trener_patronymic }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.trener_email.id_for_label }}">Email:</label>
+                    {{ form.trener_email }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.trener_phone.id_for_label }}">Телефон:</label>
+                    {{ form.trener_phone }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Выбор предметов и музыки (динамически) -->
+        <div class="form-section" id="items-section" style="display: none;">
+            <h3>Выбор предметов и музыки</h3>
+            <div id="items-container"></div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="button button-primary" id="submit-btn" style="display: none;">Отправить заявку</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'irina_app/static/js/registration.js' %}"></script>
+{% endblock %}

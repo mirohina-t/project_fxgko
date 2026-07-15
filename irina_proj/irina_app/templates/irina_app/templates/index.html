@@ -1,0 +1,21 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+{% block title %} {{title}} {% endblock %} 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/posts.css' %}">
+{% endblock %}
+
+{% block main_block %}
+<div class="slider-container">
+    <div class="slider-wrapper">
+        <img src="{% static 'irina_app/static/img/img_1.jpg' %}" alt="Изображение 1" class="slide active">
+        <img src="{% static 'irina_app/static/img/img_2.jpg' %}" alt="Изображение 2" class="slide">
+        <img src="{% static 'irina_app/static/img/img_3.jpg' %}" alt="Изображение 3" class="slide">
+    </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'irina_app/static/js/posts.js'%}"></script>
+{% endblock %}

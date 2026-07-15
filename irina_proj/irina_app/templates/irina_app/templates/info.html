@@ -1,0 +1,37 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+{% block title %} {{title}} {% endblock %} 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/posts.css' %}">
+{% endblock %}
+
+{% block main_block %}
+<div class="about-us-content">
+        <div class="section president-section">
+            <h2>Президент Федерации</h2>
+            <div class="president-info">
+                <img src="{% static 'irina_app/static/img/prezident.jpg' %}" alt="Фото Президента" class="president-photo">
+                <div class="president-details">
+                    <h3>Ирина Валерьевна Евстигнеева</h3>
+                    <p><b>Дата рождения:</b> 13.07.1987</p>
+                    <p><b>Краткая биография:</b> С октября 2014 года являюсь президентом РОО «Федерация художественной гимнастики Калининградской области».
+Тренер-преподаватель ГАУ ДО КО «Комплексная спортивная школа олимпийского резерва», стаж более 10 лет</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section contact-section">
+            <h2>Контактная информация</h2>
+            <div class="address-info">
+                <p><strong>Адрес:</strong> г. Калининград, улица Ю. Гагарина, 99</p>
+                <p><strong>Телефон:</strong> 89114534258</p>
+                <p><strong>Email:</strong> <a href="fhgko@mail.ru">fhgko@mail.ru</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}

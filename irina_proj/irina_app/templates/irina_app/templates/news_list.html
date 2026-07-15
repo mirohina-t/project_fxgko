@@ -1,0 +1,55 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %} 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/news.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/modal.css' %}">
+{% endblock %}
+
+{% block main_block %}
+<div id="all_news_container">
+    {% for new in all_news %} 
+        <div class="new_container">
+            <div class="new_header">
+                <h2 class="new_title">
+                    <a href="#" class="open-modal-link" data-news-id="{{ new.id }}">{{ new.title }}</a>
+                </h2>
+                <p class="new_date">Опубликовано: {{ new.publish_date }}</p>
+            </div>
+            <div class="new_content">
+                {% if new.images.first %}
+                    <img src="{{ new.images.first.image.url }}" alt="new_image" class="new_img">
+                {% endif %}
+                <p class="new_text">{{ new.text|truncatewords:50 }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    
+    <!-- Пагинация -->
+    <div id="pagination" class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page_number={{ page_obj.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+        <span class="current">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page_number={{ page_obj.next_page_number }}">Следующая</a>
+        {% endif %}
+    </div>
+</div>
+<button id="button_to_top" class="to-top-button">🔺</button>
+<!-- Модальное окно -->
+<div id="news-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2 id="modal-news-title"></h2>
+        <div id="modal-news-text" class="modal-text"></div>
+        <div id="modal-news-gallery" class="modal-gallery"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'irina_app/static/js/news.js' %}"></script>
+<script src="{% static 'irina_app/static/js/modal.js' %}"></script>
+{% endblock %}

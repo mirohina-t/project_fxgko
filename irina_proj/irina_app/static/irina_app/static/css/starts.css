@@ -1,0 +1,66 @@
+/* #all_starts_container {
+    padding: 5px;
+} */
+.start_container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 50px;
+   
+}
+.start_info {
+    padding: 10px 20px;
+    align-items: center;
+    margin-top: 10px;  
+}
+.start_details {
+    display: flex; /* Задает flex-контейнер */
+    justify-content: space-around; /* Распределяет пространство между элементами */
+    margin-top: 10px;  
+    gap: 15px;
+}
+.start_details div {
+    flex: 1;
+    padding: 10px;
+}
+.start_date {
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+.start_date img {
+    height: 20px;
+    margin-right: 5px;
+}
+.start_info, .start_details div, .start_date {
+    background: #c2b7b7;
+    border-radius: 5px;
+}
+.start_details p, .start_date p{
+    font-size: 14px;
+}
+
+
+/* Медиа-запрос для адаптивности: на маленьких экранах будет одна карточка в ряд */
+@media (max-width: 768px) {
+    .start_container {
+        width: 100%; 
+    }
+
+    #all_starts_container {
+        min-height: 30vh; 
+    }
+}
+
+
+
+

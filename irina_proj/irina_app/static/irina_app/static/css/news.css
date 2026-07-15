@@ -1,0 +1,125 @@
+/* Стили для отдельной карточки новости */
+.new_container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Расположение элементов внутри карточки: сначала заголовок, потом контент */
+}
+
+.new_container:hover {
+    transform: translateY(-5px); /* Эффект при наведении */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для заголовка новости */
+.new_header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.new_title {
+    font-size: 24px;
+    color: #1e3a67; /* Темно-синий для заголовка */
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.new_date {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Стили для основного контента новости */
+.new_content {
+    flex-grow: 1; /* Позволяет блоку контента занять всё доступное пространство */
+}
+
+.new_img {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    /* height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px; */
+    display: block; /* Убирает лишний отступ снизу у изображения */
+}
+
+.new_text {
+    font-size: 16px;
+    color: #444;
+    margin: 0;
+    text-align: justify; /* Выравнивание текста по ширине */
+}
+
+
+
+
+#button_to_top {
+    font-size: 24px;  /* Увеличим размер */
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;  /* Добавим фон для видимости */
+    color: white;
+    border: none;
+    border-radius: 50%;  /* Сделаем круглой */
+    position: fixed;
+    right: 50px;  /* Изменим на фиксированные пиксели */
+    bottom: 100px;
+    display: none;  /* Изначально скрыта */
+    cursor: pointer;
+    z-index: 9999;  /* Чтобы была поверх других элементов */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#button_to_top:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);  /* Эффект увеличения */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#button_to_top:active {
+    transform: scale(0.95);
+}
+
+/* Медиа-запросы для отзывчивости */
+@media (max-width: 768px) {
+    #all_news_container {
+        grid-template-columns: 1fr; /* На маленьких экранах одна колонка */
+    }
+    .new_title {
+        font-size: 20px;
+    }
+     #button_to_top {
+        width: 35px;
+        height: 35px;
+        right: 30px;
+        bottom: 100px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .new_container {
+        padding: 15px;
+    }
+    .new_title {
+        font-size: 18px;
+    }
+    .new_text {
+        font-size: 15px;
+    }
+    #button_to_top {
+        width: 20px;
+        height: 20px;
+        right: 30px;
+        bottom: 10ыы0px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,54 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %} 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/starts.css' %}">
+{% endblock %}
+{% block main_block %}
+<div id="all_starts_container">
+    {% for start in page_obj %} 
+        <div class="start_container">
+            <div class="start_info">
+                <h2>{{start.name}}</h2>
+                {% if start.id and start.is_registration_open %}
+                    <a href="{% url 'registration' start_id=start.id %}" class="button">Регистрация открыта</a>
+                {% elif start.id and not start.is_registration_open %}
+                    <a href="#" class="button disabled">Регистрация закрыта</a>
+                {% else %}
+                    <span class="error">Ошибка: ID соревнования не найден</span>
+                {% endif %}
+            </div>
+            <div class="start_details">
+                <div>
+                    <h4>Сроки проведения :</h4> <p>{{start.event_date}} - {{start.end_date}}</p>
+                </div>
+                <div>
+                    <h4>Прием заявок до : </h4> <p>{{start.registration_end_date}}</p>
+                </div>
+            </div>
+            <div class="start_date">
+                <h4>Описание</h4>
+                <span>{{start.description}}</span><br>
+                <span>Место проведения: {{start.city}}, {{start.street}}</span>
+            </div>
+        </div>
+    {% empty %}
+        <p>Нет доступных соревнований</p>
+    {% endfor %}
+    
+    <div id="pagination" class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page_number={{ page_obj.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+        <span class="current">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page_number={{ page_obj.next_page_number }}">Следующая</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}

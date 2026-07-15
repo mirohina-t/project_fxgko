@@ -1,0 +1,248 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #331052;
+    line-height: 1.6;
+}
+
+/* Стили для шапки */
+header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* Разрешить перенос элементов на новую строку */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Добавляем промежуток между элементами */
+}
+
+header div { /* Контейнер логотипа и названия */
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Запретить сжатие логотипа */
+}
+
+header img {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+header span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1e3a67;
+}
+
+/* Стили для навигационного меню */
+#main_menu {
+    display: flex;
+    flex-wrap: wrap; /* Разрешить перенос ссылок */
+    justify-content: center; /* Центрировать ссылки при переносе */
+    gap: 15px; /* Расстояние между ссылками */
+}
+
+#main_menu a {
+    text-decoration: none;
+    color: #5b1c9f;
+    /* margin-left: 25px; */ /* Убираем фиксированный отступ, используем gap */
+    font-size: 16px;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Предотвратить разрыв ссылок */
+}
+
+#main_menu a:hover {
+    color: #1e3a67;
+    font-weight: bold;
+}
+
+
+main {
+    padding: 30px;
+    max-width: 1920px;
+    min-height: 55vh;
+    margin: 10px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+/* Адаптация main для слайдера */
+main .slider-container { /* Конкретизируем, чтобы слайдер внутри main не получил общих стилей main */
+    margin-top: 0; /* Убираем верхний отступ, т.к. он уже есть у самого контейнера */
+    margin-bottom: 0; /* Убираем нижний отступ, т.к. он уже есть у самого контейнера */
+}
+
+/* Стили для подвала */
+footer {
+    background-color: #1e3a67;
+    color: #fff;
+    margin-top: 30px;
+    padding: 20px 15px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
+    gap: 40px;
+}
+
+/* Блок с копирайтом */
+.footer-copyright {
+    flex-shrink: 0; /* Запрещаем сжатие */
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 16px;
+    color: #ecf0f1;
+    white-space: nowrap; /* Текст не переносится */
+}
+
+/* Блок с иконками соцсетей */
+.footer-social {
+    display: flex;
+    gap: 40px; /* Большое расстояние между иконками */
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Увеличили размер */
+    height: 50px; /* Увеличили размер */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-size: 28px; /* Увеличили иконки */
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Индивидуальные цвета при наведении */
+.social-icon.vk:hover {
+    background-color: #0077ff;
+}
+
+.social-icon.telegram:hover {
+    background-color: #0088cc;
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    header {
+        justify-content: center; /* Центрировать элементы шапки на экранах меньше 768px */
+        flex-direction: column; /* Расположить элементы шапки друг под другом */
+    }
+
+    header div {
+        margin-bottom: 10px; /* Добавить отступ между блоком логотипа и меню */
+    }
+
+    #main_menu {
+        width: 100%; /* Меню занимает всю ширину */
+        justify-content: center; /* Центрируем ссылки */
+    }
+
+    #main_menu a {
+        margin-left: 0; /* Убираем отступ */
+        margin: 5px 10px; /* Добавляем отступы вокруг ссылок */
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+    
+    .footer-container {
+        gap: 30px;
+    }
+    
+    .footer-copyright p {
+        font-size: 14px;
+    }
+    
+    .footer-social {
+        gap: 30px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-wrap: wrap; /* На маленьких экранах разрешаем перенос */
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .footer-copyright p {
+        white-space: normal; /* Разрешаем перенос текста */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        height: 40px; /* Уменьшаем размер логотипа */
+    }
+    header span {
+        font-size: 18px; /* Уменьшаем размер шрифта названия */
+    }
+    #main_menu a {
+        font-size: 14px; /* Уменьшаем размер шрифта навигации */
+    }
+    main {
+        padding: 20px; /* Уменьшаем padding основного контента */
+    }
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+    .footer-social {
+        gap: 25px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-social .social-icon {
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.footer-social .social-icon:nth-child(1) { animation-delay: 0.1s; }
+.footer-social .social-icon:nth-child(2) { animation-delay: 0.2s; }
+.footer-social .social-icon:nth-child(3) { animation-delay: 0.3s; }

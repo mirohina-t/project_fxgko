@@ -1,0 +1,55 @@
+{% extends "irina_app/templates/base.html" %}
+{% load static %}
+
+{% block title %}Служебная панель{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/admin_panel.css' %}">
+{% endblock %}
+
+{% block main_block %}
+<div class="admin-container">
+    <div class="admin-header">
+        <h2>Служебная панель</h2>
+        <p>Добро пожаловать, {{ user.username }}!</p>
+    </div>
+    
+    <div class="admin-actions">
+        <div class="action-card">
+            <h3>Управление соревнованиями</h3>
+            <p>Добавление, редактирование и удаление соревнований</p>
+            <a href="/admin/irina_app/starts/" class="admin-btn">Перейти</a>
+        </div>
+        
+        <div class="action-card">
+            <h3>Управление категориями</h3>
+            <p>Настройка категорий участников</p>
+            <a href="/admin/irina_app/startsсategory/" class="admin-btn">Перейти</a>
+        </div>
+        
+        <div class="action-card">
+            <h3>Управление предметами</h3>
+            <p>Добавление и редактирование предметов</p>
+            <a href="/admin/irina_app/sportitem/" class="admin-btn">Перейти</a>
+        </div>
+        
+        <div class="action-card">
+            <h3>Управление группами</h3>
+            <p>Настройка спортивных групп</p>
+            <a href="/admin/irina_app/sportgroups/" class="admin-btn">Перейти</a>
+        </div>
+        
+        <div class="action-card">
+            <h3>Просмотр заявок</h3>
+            <p>Просмотр зарегистрированных участников</p>
+            <a href="/admin/irina_app/startsdetails/" class="admin-btn">Перейти</a>
+        </div>
+    </div>
+    
+    <div class="admin-footer">
+        <a href="{% url 'all_starts' %}" class="back-link">← На главную</a>
+        <a href="{% url 'user_logout' %}" class="logout-link">Выйти</a>
+    </div>
+</div>
+{% endblock %}

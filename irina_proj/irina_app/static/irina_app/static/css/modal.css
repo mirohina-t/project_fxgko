@@ -1,0 +1,66 @@
+
+.modal {
+    display: none; /* По умолчанию скрыто */
+    position: fixed; /* Фиксированное позиционирование */
+    z-index: 1000; /* Поверх всего */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Включение прокрутки, если контент не помещается */
+    background-color: rgba(0,0,0,0.6); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto; /* Центрируем по вертикали и горизонтали */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 85%; /* Ширина модального окна */
+    max-width: 700px; /* Максимальная ширина */
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.modal-gallery {
+    margin-top: 20px;
+    display: flex; /* Используем Flexbox для галереи */
+    flex-wrap: wrap; /* Позволяем изображениям переноситься */
+    gap: 10px; /* Расстояние между изображениями */
+    justify-content: center; /* Центрируем изображения */
+}
+
+.modal-gallery img {
+    /* max-width: 150px; Размер каждого изображения в галерее */
+    max-width: 100%; /* Размер каждого изображения в галерее */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#modal-news-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}

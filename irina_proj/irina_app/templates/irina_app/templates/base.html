@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Главная{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'irina_app/static/css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    {% block css_block %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div>
+            <img src="{% static 'irina_app/static/img/logo.jpg' %}" alt="Логотип" style="height: 50px; vertical-align: middle;">
+            <span style="font-size: 20px; margin-left: 10px;">РОО "ФЕДЕРАЦИЯ ХУДОЖЕСТВЕННОЙ ГИМНАСТИКИ КАЛИИНГРАДСКОЙ ОБЛАСТИ"</span>
+        </div>
+        <nav id="main_menu">
+            <a href="{%url 'index'%}">Главная</a>
+            <a href="{%url 'news_list'%}">Новости</a>
+            <a href="{%url 'info'%}">О нас</a> 
+            <a href="{%url 'all_starts'%}">Соревнования</a>
+
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <a href="{% url 'admin_panel' %}">Админ-панель</a>
+                    <a href="{% url 'user_logout' %}">Выйти ({{ user.username }})</a>
+                {% else %}
+                    <a href="{% url 'user_login' %}">Служебный вход</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'user_login' %}">Служебный вход</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>{% block main_block %}{% endblock %}</main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copyright">
+                <p>© 2026 РОО "ФХГКО". Все права защищены.</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://vk.com/your_page" target="_blank" class="social-icon vk" aria-label="ВКонтакте">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://t.me/your_channel" target="_blank" class="social-icon telegram" aria-label="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://www.youtube.com/c/your_channel" target="_blank" class="social-icon youtube" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    {% block js_block %}{% endblock %}
+</body>
+</html>

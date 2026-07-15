@@ -1,0 +1,402 @@
+/* Базовые переменные */
+:root {
+    --primary-color: #667eea;
+    --primary-dark: #5a67d8;
+    --success-color: #4CAF50;
+    --danger-color: #dc3545;
+    --gray-light: #f9f9f9;
+    --gray-border: #ddd;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --border-radius: 8px;
+}
+
+/* Контейнер формы - адаптивная ширина */
+.registration-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--gray-light);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+}
+
+/* Информация о соревновании */
+.start-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.start-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.start-info p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+/* Секции формы */
+.form-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* Группы полей */
+.form-group {
+    margin-bottom: 15px;
+    flex: 1;
+    min-width: 0; /* Для правильного flex поведения */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+/* Ряд полей - flexbox для адаптивности */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+/* Строка предмета */
+.item-row {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background: #fafafa;
+    transition: box-shadow 0.3s ease;
+}
+
+.item-row:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.item-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+/* Аудио плеер */
+.audio-preview {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Кнопки */
+.button-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.button-primary:active {
+    transform: translateY(0);
+}
+
+/* Сообщения об ошибках */
+.errorlist {
+    color: var(--danger-color);
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    font-size: 0.85rem;
+}
+
+/* Успешное сообщение */
+.success-message {
+    background: var(--success-color);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ============================================ */
+ /* МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ */
+/* ============================================ */
+
+/* Планшеты и маленькие ноутбуки (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .registration-container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 8px 10px;
+    }
+}
+
+/* Планшеты вертикально и большие телефоны (600px - 768px) */
+@media screen and (max-width: 768px) {
+    .registration-container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    
+    .start-info {
+        padding: 15px;
+    }
+    
+    .start-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .form-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .form-row {
+        gap: 15px;
+    }
+    
+    .item-row {
+        padding: 15px;
+    }
+    
+    .button-primary {
+        padding: 12px 20px;
+    }
+}
+
+/* Мобильные телефоны (320px - 600px) */
+@media screen and (max-width: 600px) {
+    .registration-container {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        border-radius: 0;
+    }
+    
+    .start-info {
+        padding: 12px;
+        border-radius: 6px;
+    }
+    
+    .start-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .start-info p {
+        font-size: 0.85rem;
+    }
+    
+    .form-section {
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+    }
+    
+    .form-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Вертикальное расположение полей */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-group {
+        margin-bottom: 12px;
+    }
+    
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .item-row {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .item-header {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .button-primary {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .audio-preview {
+        width: 100%;
+    }
+}
+
+/* Очень маленькие телефоны (до 380px) */
+@media screen and (max-width: 380px) {
+    .start-info h3 {
+        font-size: 1rem;
+    }
+    
+    .form-section h3 {
+        font-size: 1rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .button-primary {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Для экранов с высоким разрешением (Retina, 4K) */
+@media screen and (min-width: 1920px) {
+    .registration-container {
+        max-width: 1400px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+    }
+    
+    .button-primary {
+        font-size: 1.1rem;
+        padding: 16px 35px;
+    }
+}
+
+/* Для печати */
+@media print {
+    .registration-container {
+        background: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .button-primary,
+    .audio-preview {
+        display: none;
+    }
+    
+    .form-group input,
+    .form-group select {
+        border: 1px solid #000;
+    }
+}
+
+/* Анимации для улучшения UX */
+.form-group input,
+.form-group select,
+.button-primary,
+.item-row {
+    transition: all 0.3s ease;
+}
+
+/* Стили для touch-устройств */
+@media (hover: hover) {
+    .button-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+}
+
+@media (hover: none) {
+    .button-primary:active {
+        background: var(--primary-dark);
+    }
+}
+
+/* Для устройств с маленькой высотой экрана */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .registration-container {
+        margin: 5px auto;
+    }
+    
+    .form-section {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 8px;
+    }
+}
